@@ -29,14 +29,12 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-
-    - name: Docker Login
-      uses: docker/login-action@v3.1.0
+    - name: Build & push Docker image
+      uses: mr-smithers-excellent/docker-build-push@v6
       with:
-        username: kotikathari
-        Password: Koti@970123
-    - name: Build and push Docker images
-      uses: docker/build-push-action@v5.3.0
-      with:
-        push: true
-        tags: kotikathari/sample-java:latest
+        image: kotikathari/sample-java
+        tags: latest
+        registry: https://hub.docker.com/r/kotikathari/sample-java
+        dockerfile: Dockerfile
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
