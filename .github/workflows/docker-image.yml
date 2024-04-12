@@ -18,10 +18,10 @@ jobs:
     - name: Login to DockerHub
       uses: docker/login-action@v2
       with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        username: kotikathari
+        password: Koti@970123
     - name: Build and push
       uses: docker/build-push-action@v5      
       with:
         push: true
-        tags: ak/my-image:latest
+        tags: kotikathari/sample-java:latest
