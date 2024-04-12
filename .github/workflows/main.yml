@@ -39,5 +39,4 @@ jobs:
       uses: docker/build-push-action@v5.3.0
       with:
         push: true
-        file: ./Dockerfile
-        tags: latest
+        tags: kotikathari/sample-java:latest
